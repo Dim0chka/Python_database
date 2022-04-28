@@ -55,7 +55,7 @@ def СВОДКА(number: int):
         4: "sr_phis"
     }
 
-    # obj.items() - получает все элементы словаря и возращает обьект, который отображает список пар по ключу и их значению
+    # obj.items() - получает все элементы словаря и возращает обьект, который отображает список из словарей, содержащих пару ключа и их значения
     # [(key, value), (key, value), (key, value)]
     obj = json.loads(open("date.json", "r").read())
     obj_sort = sorted(obj.items(), key=lambda x: x[1][summary[int(number)]])
@@ -67,7 +67,7 @@ def СВОДКА(number: int):
 
 def СОХРАНИТЬ(name_file: str):
     obj = json.loads(open("date.json", "r").read())
-    arr = []  # массив, в котором хранятся данные о дочерних обьектах obj из json
+    arr = []  # массив, в котором хранятся данные об обьектах в json
 
     for student in obj:
         arr.append(f'{obj[student]["student"]} {obj[student]["year"]} {obj[student]["sr_inf"]} {obj[student]["sr_math"]} {obj[student]["sr_phis"]}')
@@ -82,13 +82,13 @@ def ЗАГРУЗИТЬ(name_file: str):
 
     file = (open(name_file, "r").read()).split("\n")
 
-    for x in file: #проходимя по каждому элементу в массиве
-        arr_student = x.split() #переводим в массив данные об ученике
+    for x in file: # проходимся по каждому элементу в массиве
+        arr_student = x.split() # переводим в массив данные об ученике
         ДОБАВИТЬ(arr_student[0], arr_student[1], arr_student[2], arr_student[3], arr_student[4])
 
 
 while True:
-    query = input().split(" ")
+    query = input().split()
 
     if query[0] == "ДОБАВИТЬ":
         ДОБАВИТЬ(query[1], int(query[2]), float(query[3]), float(query[4]), float(query[5]))
