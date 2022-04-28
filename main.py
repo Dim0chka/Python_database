@@ -1,7 +1,7 @@
 import json
 
 
-def ДОБАВИТЬ(student: str, year: int, sr_inf: float, sr_math: float, sr_phis: float):
+def ДОБАВИТЬ(student: str, year: int, sr_inf: float, sr_math: float, sr_phis: float) -> str:
     obj = json.loads(open("date.json", "r").read())  # перевод из строки в массив
     obj[student] = {
         "student": student,
@@ -17,7 +17,7 @@ def ДОБАВИТЬ(student: str, year: int, sr_inf: float, sr_math: float, sr_
     print("User added")
 
 
-def ПОКАЗАТЬ(student: str):
+def ПОКАЗАТЬ(student: str) -> str:
     obj = json.loads(open("date.json", "r").read())
 
     if student not in obj:  # если в массиве нет такого дочернего обьекта, то выводим "Такого нет"
