@@ -92,6 +92,7 @@ def ЗАГРУЗИТЬ(name_file: str):
     #
     # open("date.json", "w").write(json.dumps(obj, indent=4))
 
+"Hi guys"
 
 while True:
     query = input().split(" ")
