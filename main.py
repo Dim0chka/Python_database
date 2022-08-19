@@ -1,6 +1,5 @@
 import json
 
-
 def ДОБАВИТЬ(student: str, year: int, sr_inf: float, sr_math: float, sr_phis: float) -> str:
     obj = json.loads(open("date.json", "r").read())  # перевод из строки в массив
     obj[student] = {
